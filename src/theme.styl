@@ -1,0 +1,85 @@
+$tablet = 700px
+$desktop = 1200px
+
+borderRadius(mod = 1)
+  border-radius mod * 4px
+
+shadow()
+  box-shadow 0 10px 20px var(--accent-color)
+
+controlBorder(color = var(--accent-color), size = 2px, rest...)
+  if color
+    box-shadow inset 0 0 0 size color rest
+  else
+    box-shadow none rest
+
+control()
+  appearance none
+  outline none
+  border-radius var(--border-radius-m)
+  box-sizing border-box
+  controlBorder(var(--accent-color))
+  background-color transparent
+  transition .2s ease-out
+  transition-property box-shadow, opacity
+
+  &:hover
+    controlBorder(var(--active-color))
+
+controlFocused(args...)
+  controlBorder(var(--active-color), 2px, args)
+
+controlDisabled()
+  controlBorder(var(--accent-color))
+  color var(--accent-color)
+  cursor not-allowed
+  opacity .5
+
+controlSize(size)
+  if size == 's'
+    height 30px
+    min-height 30px
+    max-height 30px
+    min-width 30px
+    controlPaddingSize('s')
+    font-size 12px
+
+  if size == 'm'
+    height 40px
+    min-height 40px
+    max-height 40px
+    min-width 40px
+    controlPaddingSize('m')
+    font-size 16px
+
+  if size == 'l'
+    height 50px
+    min-height 50px
+    max-height 50px
+    min-width 50px
+    controlPaddingSize('l')
+    font-size 20px
+
+controlPaddingSize(size)
+  if size == 's'
+    padding 0 10px
+  if size == 'm'
+    padding 0 12px
+  if size == 'l'
+    padding 0 14px
+
+borderRadiusSize(size)
+  if size == 's'
+    border-radius 4px
+  if size == 'm'
+    border-radius 6px
+  if size == 'l'
+    border-radius 8px
+  if size == 'xl'
+    border-radius 10px
+
+mapButton()
+  color var(--accent-color) !important
+  background-color var(--decent-color-alpha-800) !important
+  border-radius 50%
+  controlBorder(var(--accent-color), 2px, !important)

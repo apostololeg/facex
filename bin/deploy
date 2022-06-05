@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export $(cat .env | xargs) && \
+    scp -r build root@${PROD_IP}:${PROD_PATH}

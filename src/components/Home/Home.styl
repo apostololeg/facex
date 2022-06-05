@@ -1,0 +1,24 @@
+.root
+  display flex
+  align-items center
+  justify-content center
+  height 100%
+
+  @media screen and (max-width: 700)
+    flex-direction column
+
+.face
+  position absolute !important
+  top 0
+  left 0
+  right 0
+  bottom 0
+  opacity .5
+
+.startButton::before
+  content ''
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
