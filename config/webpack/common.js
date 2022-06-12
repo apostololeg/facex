@@ -151,7 +151,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       domain: PRODUCTION
-        ? 'https://facelink.apostol.space'
+        ? 'https://facex.apostol.space'
         : 'http://localhost:7878',
       // lang: PAGE_LANG,
       title: PAGE_TITLE,
