@@ -1,15 +1,15 @@
+import { useState } from 'react';
 import { Button, RouterStore, Container } from '@foreverido/uilib';
 
 import useFaceLandmarks from 'hooks/useFaceLandmarks';
 import Face from 'components/Face/Face';
 
 import S from './Home.styl';
-import { useState } from 'react';
 
 export default function Home() {
-  const [points, setPoints] = useState([]);
+  const [points, setPoints] = useState(new Float32Array());
 
-  useFaceLandmarks(setPoints);
+  useFaceLandmarks(points => setPoints(new Float32Array(points)));
 
   return (
     <Container size="l" className={S.root}>

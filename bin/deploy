@@ -1,4 +1,5 @@
 #!/bin/sh
 
 export $(cat .env | xargs) && \
-    scp -r build root@${PROD_IP}:${PROD_PATH}
+    # rsync -av -e ssh build root@${PROD_IP}:${PROD_PATH} --progress
+    rsync -av -e ssh --exclude='face_mesh/' --exclude='assets/'  build root@${PROD_IP}:${PROD_PATH} --progress

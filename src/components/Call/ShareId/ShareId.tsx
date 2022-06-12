@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { Input, Button } from '@foreverido/uilib';
 
 export default function ShareId({ id, className }) {
-  const link = `https://facelink.apostol.space/call?id=${id}`;
+  const link = `https://facex.apostol.space/call?id=${id}`;
   const [isCopied, setCopied] = useState(false);
 
   const onCopyClick = useCallback(() => {

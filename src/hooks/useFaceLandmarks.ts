@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import * as faceLandmarksDetection from '@tensorflow-models/face-landmarks-detection';
 import { setWasmPaths } from '@tensorflow/tfjs-backend-wasm';
 import '@tensorflow/tfjs-backend-webgl';
+import Time from 'timen';
 
 import wasmSimdPath from '@tensorflow/tfjs-backend-wasm/dist/tfjs-backend-wasm-simd.wasm';
 import wasmSimdThreadedPath from '@tensorflow/tfjs-backend-wasm/dist/tfjs-backend-wasm-threaded-simd.wasm';
@@ -41,7 +42,9 @@ async function initDetector() {
   );
 }
 
-export default function useFaceLandmarks(onChange?) {
+type Callback = (points: number[]) => void;
+
+export default function useFaceLandmarks(onChange?: Callback) {
   const init = useCallback(async () => {
     await initVideo();
     if (!mounted) return;
@@ -60,13 +63,13 @@ export default function useFaceLandmarks(onChange?) {
 
       for (let i = 0; i < keypoints.length; i++) {
         const p = keypoints[i];
-        points.push(+p.x.toFixed(1), +p.y.toFixed(1), +p.z.toFixed(1));
+        points.push(p.x, p.y, p.z);
       }
 
       onChange?.(points);
     }
 
-    requestAnimationFrame(detect);
+    Time.after(30, detect);
   }, []);
 
   useEffect(() => {
