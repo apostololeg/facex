@@ -6,24 +6,21 @@ import triangulation from './triangulation';
 
 type Props = {
   className?: string;
-  points?: number[];
+  points?: Float32Array;
   onData?: (data: object) => void;
 };
 
-function buildGeometry(points) {
+function buildGeometry(points: Float32Array) {
   const geometry = new BufferGeometry();
 
-  geometry.setAttribute(
-    'position',
-    new BufferAttribute(new Float32Array(points), 3)
-  );
+  geometry.setAttribute('position', new BufferAttribute(points, 3));
   geometry.setIndex(new BufferAttribute(new Uint16Array(triangulation), 1));
 
   return geometry;
 }
 
 export default function Face({ className, points }: Props) {
-  if (!points?.length) return null;
+  if (!points?.byteLength) return null;
 
   return (
     <Canvas className={className}>
