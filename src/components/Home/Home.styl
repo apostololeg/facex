@@ -15,10 +15,11 @@
   bottom 0
   opacity .5
 
-.startButton::before
-  content ''
-  position absolute
-  top 0
-  left 0
-  right 0
-  bottom 0
+.startButton
+  z-index 1
+  border-radius 50%
+  min-height 200px
+  width 200px
+
+  &:hover
+    background-color var(--accent-color-alpha-200)

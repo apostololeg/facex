@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Container, queryParams } from '@foreverido/uilib';
 import { Peer } from 'peerjs';
-import pako from 'pako';
+// import pako from 'pako';
+// import fi from 'fastintcompression';
 
 import Face from 'components/Face/Face';
 import useFaceLandmarks from 'hooks/useFaceLandmarks';
-import fi from 'fastintcompression';
 
 import S from './Call.styl';
 import ShareId from './ShareId/ShareId';

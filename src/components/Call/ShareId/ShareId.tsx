@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, memo } from 'react';
 import { Input, Button } from '@foreverido/uilib';
 
-export default function ShareId({ id, className }) {
+export default memo(function ShareId({ id, className }) {
   const link = `https://facex.apostol.space/call?id=${id}`;
   const [isCopied, setCopied] = useState(false);
 
@@ -37,4 +37,4 @@ export default function ShareId({ id, className }) {
       }
     />
   );
-}
+});
