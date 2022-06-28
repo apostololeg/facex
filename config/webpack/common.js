@@ -38,6 +38,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.worker\.js$/,
+        include: `${paths.client}/workers/`,
+        use: {
+          loader: 'worker-loader',
+          options: {
+            esModule: false,
+          },
+        },
+      },
+      {
         test: /\.(j|t)sx?$/,
         loader: 'babel-loader',
         include: paths.client,
