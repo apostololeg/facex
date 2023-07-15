@@ -53,6 +53,12 @@ module.exports = {
         include: paths.client,
       },
       {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
         test: /\.styl$/,
         use: [
           'style-loader',
@@ -199,8 +205,8 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: PRODUCTION ? '[name].[fullhash].css' : '[name].css',
-      chunkFilename: PRODUCTION ? '[id].[fullhash].css' : '[id].css',
+      filename: PRODUCTION ? '[name].[hash].css' : '[name].css',
+      chunkFilename: PRODUCTION ? '[id].[hash].css' : '[id].css',
     }),
   ],
 };

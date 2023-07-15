@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, RouterStore, Container } from '@foreverido/uilib';
+import { Button, RouterStore, Container } from '@homecode/ui';
 
 import useFaceLandmarks from 'hooks/useFaceLandmarks';
 import Face from 'components/Face/Face';
@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <Container size="l" className={S.root}>
-      <Face className={S.face} points={points} />
+      {/* <Face className={S.face} points={points} /> */}
 
       <Button
         size="l"

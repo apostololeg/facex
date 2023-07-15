@@ -5,14 +5,14 @@ import { withStore } from 'justorm/react';
 import Routes from 'components/Routes/Routes';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 
-import { VH, Theme } from '@foreverido/uilib';
+import { VH, Theme } from '@homecode/ui';
 
 import S from './App.styl';
 
 require('store');
 
 @withStore({
-  app: ['theme'],
+  app: ['currThemeConfig'],
   // router: ['path'],
 })
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <ErrorBoundary>
         <VH />
-        <Theme config={app.theme} />
+        <Theme config={app.currThemeConfig} />
         <div className={S.root}>
           <Routes />
         </div>

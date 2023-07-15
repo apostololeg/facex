@@ -1,9 +1,10 @@
 import { createStore } from 'justorm/react';
 
-import THEME_CONFIG from 'components/App/theme';
+import { getThemeConfig } from 'components/App/theme';
 
 createStore('app', {
-  theme: THEME_CONFIG.dark,
+  currThemeConfig: getThemeConfig(true),
+
   update: null,
 
   setUpdater(fn) {

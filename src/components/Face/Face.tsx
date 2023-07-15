@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
+// @ts-ignore
 import Renderer from 'workers/offscreenFaceRenderer.worker';
 import S from './Face.styl';
 

@@ -1,5 +1,5 @@
 import { useCallback, useState, memo } from 'react';
-import { Input, Button } from '@foreverido/uilib';
+import { Input, Button } from '@homecode/ui';
 
 type Props = {
   id: string;
@@ -31,7 +31,7 @@ export default memo(function ShareId({ id, className }: Props) {
       value={link}
       onChange={onChange}
       size="l"
-      adornmentRight={
+      addonRight={
         <>
           <Button variant="clear" onClick={onCopyClick}>
             {isCopied ? 'Copied' : 'Copy'}

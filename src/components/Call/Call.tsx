@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Container, queryParams } from '@foreverido/uilib';
+import { Container, queryParams } from '@homecode/ui';
 import { Peer } from 'peerjs';
 // import pako from 'pako';
 // import fi from 'fastintcompression';
@@ -90,11 +90,11 @@ export default function Call() {
 
   return (
     <Container size="l" fullHeight className={S.root}>
-      <Face className={S.selfFace} points={selfPoints} />
-      <Face
+      {/* <Face className={S.selfFace} points={selfPoints} /> */}
+      {/* <Face
         className={S.companionFace}
         points={new Float32Array(companionPoints)}
-      />
+      /> */}
 
       {id && !companionPoints.byteLength && (
         <ShareId id={id} className={S.share} />

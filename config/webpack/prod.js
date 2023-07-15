@@ -12,7 +12,7 @@ const paths = require('../paths');
 module.exports = merge(common, {
   mode: 'production',
   optimization: {
-    minimize: true,
+    minimize: false,
   },
   plugins: [
     new HtmlWebpackPartialsPlugin({
@@ -20,25 +20,25 @@ module.exports = merge(common, {
       location: 'body',
       priority: 'low',
     }),
-    new CompressionPlugin({
-      compressionOptions: {
-        numiterations: 15,
-      },
-      algorithm(input, compressionOptions, callback) {
-        return zopfli.gzip(input, compressionOptions, callback);
-      },
-    }),
-    new BrotliPlugin({
-      asset: '[path].br[query]',
-      test: /\.(js|css|html|svg)$/,
-      threshold: 0,
-      minRatio: 1,
-    }),
-    new OfflinePlugin({
-      ServiceWorker: {
-        events: true,
-      },
-      excludes: ['.htaccess', 'index.html'],
-    }),
+    // new CompressionPlugin({
+    //   compressionOptions: {
+    //     numiterations: 15,
+    //   },
+    //   algorithm(input, compressionOptions, callback) {
+    //     return zopfli.gzip(input, compressionOptions, callback);
+    //   },
+    // }),
+    // new BrotliPlugin({
+    //   asset: '[path].br[query]',
+    //   test: /\.(js|css|html|svg)$/,
+    //   threshold: 0,
+    //   minRatio: 1,
+    // }),
+    // new OfflinePlugin({
+    //   ServiceWorker: {
+    //     events: true,
+    //   },
+    //   excludes: ['.htaccess', 'index.html'],
+    // }),
   ],
 });
